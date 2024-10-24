@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block action %}
+{% if perms.project.add_food %}
+<button class="btn btn-primary" data-mdb-ripple-init data-mdb-modal-init data-mdb-target="#add-food-modal">Add Food</button>
+{% endif %}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row row-cols-3 g-3">
+        {% for food in foods %}
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <img src="{{ food.image.url }}" class="w-100 rounded" style="height: 350px; object-fit: cover;">
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <a href="{% url 'food_detail' food.pk %}">
+                        <h5>{{ food.name }}</h5>
+                    </a>
+
+                    <p class="card-text">{{ food.ingredients }}</p>
+
+                    <div class="d-flex mt-3 align-items-center justify-content-between mt-auto">
+                        <h5 class="mb-0">from {{ food.price }} sum</h5>
+
+                        <div class=""><i class="fas fa-eye"></i> {{ food.views_count }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="modal fade" id="add-food-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <form class="modal-content" method="POST" enctype="multipart/form-data">{% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add food</h5>
+                    <button type="button" class="btn-close" data-mdb-ripple-init data-mdb-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ form.as_p }}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-mdb-ripple-init data-mdb-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

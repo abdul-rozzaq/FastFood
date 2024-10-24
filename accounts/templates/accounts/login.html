@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <h2>Kirish</h2>
+    <form method="POST" class="w-50 mb-3">
+        {% csrf_token %}
+
+        <p>
+            <label for="id_username">Username</label>
+            <input class="form-control" type="text" id="id_username" name="username" placeholder="johndoe">
+        </p>
+
+        <p>
+            <label for="id_password">Password</label>
+            <input class="form-control" type="password" name="password" id="id_password" placeholder="• • • • • •">
+        </p>
+
+        <button type="submit" class="btn btn-primary w-100">Kirish</button>
+    </form>
+
+    <a href="{% url 'accounts:register' %}" class="">Ro'yhatdan o'tish</a>
+
+</div>
+
+{% endblock %}

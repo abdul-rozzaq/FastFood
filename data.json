@@ -1,0 +1,97 @@
+[
+    {
+        "model": "project.foodtype",
+        "pk": 1,
+        "fields": {
+            "name": "Fast Food"
+        }
+    },
+    {
+        "model": "project.foodtype",
+        "pk": 2,
+        "fields": {
+            "name": "Dessert"
+        }
+    },
+    {
+        "model": "project.foodtype",
+        "pk": 3,
+        "fields": {
+            "name": "Drinks"
+        }
+    },
+    {
+        "model": "project.foodtype",
+        "pk": 4,
+        "fields": {
+            "name": "Sweets"
+        }
+    },
+    {
+        "model": "project.foodtype",
+        "pk": 5,
+        "fields": {
+            "name": "National Dishes"
+        }
+    },
+    {
+        "model": "project.food",
+        "pk": 1,
+        "fields": {
+            "food_type": 1,
+            "name": "Burger",
+            "ingredients": "Beef, lettuce, tomato, ketchup",
+            "price": 25000,
+            "views_count": 0,
+            "image": "foods/image.png"
+        }
+    },
+    {
+        "model": "project.food",
+        "pk": 2,
+        "fields": {
+            "food_type": 1,
+            "name": "Fried Potatoes",
+            "ingredients": "Fried potatoes, ketchup",
+            "price": 15000,
+            "views_count": 0,
+            "image": "foods/image.png"
+        }
+    },
+    {
+        "model": "project.food",
+        "pk": 3,
+        "fields": {
+            "food_type": 1,
+            "name": "Pizza",
+            "ingredients": "Cheese, sausage, tomato sauce",
+            "price": 45000,
+            "views_count": 0,
+            "image": "foods/image.png"
+        }
+    },
+    {
+        "model": "project.food",
+        "pk": 4,
+        "fields": {
+            "food_type": 1,
+            "name": "Hot-dog",
+            "ingredients": "Sausage, lettuce, ketchup, mayonnaise",
+            "price": 20000,
+            "views_count": 0,
+            "image": "foods/image.png"
+        }
+    },
+    {
+        "model": "project.food",
+        "pk": 5,
+        "fields": {
+            "food_type": 1,
+            "name": "Shawarma",
+            "ingredients": "Chicken, cabbage, garlic sauce",
+            "price": 30000,
+            "views_count": 0,
+            "image": "foods/image.png"
+        }
+    }
+]
