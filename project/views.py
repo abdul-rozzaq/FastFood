@@ -28,10 +28,17 @@ def home_page(request: WSGIRequest):
 
 @login_required(login_url="accounts:login")
 def detail_page(request, pk: int):
-
     food = get_object_or_404(Food, pk=pk)
     foods = Food.objects.exclude(pk=food.pk)
-    form = FoodForm(instance=food)
+
+    if request.method == "POST":
+        form = FoodForm(instance=food, data=request.POST, files=request.FILES)
+
+        if form.is_valid():
+            form.save()
+
+    else:
+        form = FoodForm(instance=food)
 
     food.views_count += 1
     food.save()
